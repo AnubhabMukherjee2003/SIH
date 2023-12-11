@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In</title>
+  <link rel="stylesheet" href="reg_style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+  <header>
+  </header>
+  <div>
+    <div class="main">
+      <div class="form" style="background-color: rgb(172, 194, 194);">
+        <h2 style="text-align: center; font-size: 25px;" >log in here</h2>
+        <!-- Email  -->
+        <div class="email">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Write your email" />
+        </div>
+        <!-- passWord -->
+        <div class="pass">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="password" />
+        </div>
+
+        <!-- email=abcd@gmail.com
+      passWord=123456 -->
+
+        <!-- Sign Up button -->
+        <button style="border-radius: 10px;" id="submit-btn" onclick="signIn()">Sign In</button>
+        <p style="font-size: 17px;">dont have an account ?</p>
+        <span><a href="reg_index.html">Sign up</a></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="reg_main.js"></script>
+</body>
+
+</html>

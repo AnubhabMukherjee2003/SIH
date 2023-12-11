@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="guj.css">
+</head>
+
+<body>
+  <header>
+    <h2 class="logo"> Gujarat Dropout Rates</h2>
+    <nav class="navigation">
+      <button class="h">
+        <a href="Index.html">Home</a>
+        <a href="#foot">About Us</a>
+      </button>
+      <button class="drp">
+        <h1>States</h1>
+        <span class="dropdown-content">
+          <a id="top" href="#">Gujrat</a>
+          <a id="middle" href="#">Maharashtra</a>
+          <a id="bottom" href="#">West Bengal</a>
+        </span>
+      </button>
+    </nav>
+  </header>
+  <section>
+
+    <body>
+      <div class="graphbox">
+        <div class="box">
+          <p class="colourp">In primary level total case</p>
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="box">
+          <p class="colourp">In primary level, gender-wise.</p>
+          <canvas id="ear"></canvas>
+        </div>
+      </div>
+      <section>
+        <p>
+          The dropout rate in Gujarat is constantly rising. This is demonstrated by data provided by various government
+          departments, as stated in a report by The New Indian Express.
+          On February 13, 2023, the Department of Education stated that the dropout rate in Gujarat at the primary level
+          was:
+          2017-18: 1.7%
+          2018-19: 2.3%
+          2019-20: 1.0%
+          2021-22: 0.0%
+
+          While the dropout rate at the secondary level was:
+          2017-18: 20.6%
+          2018-19: 23.8%
+          2019-20: 23.7%
+          2020-21: 23.3%
+          2021-23: 17.9%
+
+        </p>
+        <br>
+        <br>
+
+        <p>
+          The National Family Health survey revealed that 57% boys and 44% girls attending higher secondary school in
+          2019-21. Nearly 15 years ago only 36% boys and 28% girls were able to reach the landmark.
+          Reasons:<br>
+
+          The National Family Health and Rajesh Bhat stated that water availability and sanitation are the major factors
+          for dropping out.
+          Bharat Gajipara, the self-finance school association of Gujarat stated that the distance between school and
+          home is a major factor.
+          As students move from primary to secondary school, the chance of dropping out of students increases 2.7 times.
+          The total number of siblings has been found to be a highly significant predictor of school drop-out. An
+          increase in family size by one increases the chance of dropping out 1.7 times.
+          <br><br>
+        <div class="graph_box">
+          <div class="box">
+            <p class="colourp">In upper primary level total case</p>
+            <canvas id="mC"></canvas>
+          </div>
+          <div class="box">
+            <p class="colourp">In upper primary level, gender-wise</p>
+            <canvas id="er"></canvas>
+          </div>
+        </div>
+
+        <br><br>
+        Objectives:
+        <br>
+
+        . To understand the differentials in school dropouts at state levels. <br>
+
+        • To understand the main reasons for school dropout reported by household members.<br>
+
+        • To examine the household and parental situations influencing the school dropouts in India.<br>
+
+        Solutions:
+        <br>
+        1. We will be approaching Rotaract’s and NGOs to provide scholarships programs.
+        <br>
+        2. Launch awareness campaigns to educate parents about the importance of education.
+        <br>
+        3. Advocate for policy changes that address structural inequalities and improve the overall quality of education
+        in India.
+        <br><br>
+        <div class="graph_box_2">
+          <div class="box">
+            <p class="colourp">In secondary level total case</p>
+            <canvas id="myC"></canvas>
+          </div>
+          <div class="box">
+            <p class="colourp">In secondary level , gender-wise</p>
+            <canvas id="ebr"></canvas>
+          </div>
+        </div>
+        <br>
+      </section>
+      <button href="https://drive.google.com/file/d/1wvjhSn9G7ViCNzrEp5hVibsZOPbV1dcO/view?usp=sharing" class="btnLogin"
+        onclick="window.location.href = 'https://drive.google.com/file/d/1wvjhSn9G7ViCNzrEp5hVibsZOPbV1dcO/view?usp=sharing';"
+        id="bts">
+        Gujarat CSV
+      </button>>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+      <script>
+        const ctx = document.getElementById('myChart');
+        const ear = document.getElementById('ear');
+        new Chart(ctx, {
+          type: 'polarArea',
+          data: {
+            labels: ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17'],
+            datasets: [{
+              label: '# Total no of dropouts',
+              data: [7.63, 4.16, 9.97, 11.167, 2.43, 4.23],
+              //   backgroundColor: [
+              //     'rgba(225,99,132,1)',
+              //     'rgba(54,162,235,1)',
+              //     'rgba(255,206,86,1)',
+              //     'rgba(75,192,192,1)',
+              //     'rgba(153,102,255,1)',
+              //     'rgba(255,159,64,1)'
+              //   ]
+              //   borderColor: [
+              //   'rgba(225,99,132,1)',
+              //     'rgba(54,162,235,1)',
+              //     'rgba(255,206,86,1)',
+              //     'rgba(75,192,192,1)',
+              //     'rgba(153,102,255,1)',
+              //     'rgba(255,159,64,1)'
+              //   ]
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        new Chart(ear, {
+          type: 'line',
+          data: {
+            // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: 'Boys',
+              data: [
+                { x: '2012-01-01', y: '0.21' },
+                { x: '2013-01-01', y: '0.5' },
+                { x: '2014-01-01', y: '0' },
+                { x: '2015-01-01', y: '0.7' },
+                { x: '2016-01-01', y: '0.6' },
+                { x: '2017-01-01', y: '0' },
+                { x: '2018-01-01', y: '1.9' },
+                { x: '2019-01-01', y: '0.9' },
+                { x: '2020-01-01', y: '0' },
+                { x: '2021-01-01', y: '0' },
+              ],
+              backgroundColor: [
+                'rgba(255, 26, 104, 0.2)',
+
+              ],
+              borderColor: [
+                'rgba(255, 26, 104, 1)',
+
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'Girls',
+              data: [
+                { x: '2012-01-01', y: '1.35' },
+                { x: '2013-01-01', y: '1.06' },
+                { x: '2014-01-01', y: '0' },
+                { x: '2015-01-01', y: '0.7' },
+                { x: '2016-01-01', y: '0.9' },
+                { x: '2017-01-01', y: '0' },
+                { x: '2018-01-01', y: '2.6' },
+                { x: '2019-01-01', y: '1' },
+                { x: '2020-01-01', y: '0' },
+                { x: '2021-01-01', y: '0' },
+              ],
+              backgroundColor: [
+                'rgba(108, 36, 104, 0.2)',
+
+              ],
+              borderColor: [
+                'rgba(108, 26, 108, 1)',
+
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+      <script>
+        const cx = document.getElementById('mC');
+        const er = document.getElementById('er');
+        new Chart(er, {
+          type: 'polarArea',
+          data: {
+            labels: ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17'],
+            datasets: [{
+              label: '# Total no of dropouts',
+              data: [7.63, 4.16, 9.97, 11.167, 2.43, 4.23],
+              //   backgroundColor: [
+              //     'rgba(225,99,132,1)',
+              //     'rgba(54,162,235,1)',
+              //     'rgba(255,206,86,1)',
+              //     'rgba(75,192,192,1)',
+              //     'rgba(153,102,255,1)',
+              //     'rgba(255,159,64,1)'
+              //   ]
+              //   borderColor: [
+              //   'rgba(225,99,132,1)',
+              //     'rgba(54,162,235,1)',
+              //     'rgba(255,206,86,1)',
+              //     'rgba(75,192,192,1)',
+              //     'rgba(153,102,255,1)',
+              //     'rgba(255,159,64,1)'
+              //   ]
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        new Chart(cx, {
+          type: 'line',
+          data: {
+            // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: 'Boys',
+              data: [
+                { x: '2012-01-01', y: '2.75' },
+                { x: '2013-01-01', y: '3.52' },
+                { x: '2014-01-01', y: '0' },
+                { x: '2015-01-01', y: '0.1' },
+                { x: '2016-01-01', y: '0' },
+                { x: '2017-01-01', y: '0' },
+                { x: '2018-01-01', y: '9.1' },
+                { x: '2019-01-01', y: '7.2' },
+                { x: '2020-01-01', y: '0' },
+                { x: '2021-01-01', y: '4.2' },
+
+              ],
+              backgroundColor: [
+                'rgba(255, 26, 104, 0.2)',
+
+              ],
+              borderColor: [
+                'rgba(255, 26, 104, 1)',
+
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'Girls',
+              data: [
+                { x: '2012-01-01', y: '8.19' },
+                { x: '2013-01-01', y: '8.04' },
+                { x: '2014-01-01', y: '3.1' },
+                { x: '2015-01-01', y: '0' },
+                { x: '2016-01-01', y: '0' },
+                { x: '2017-01-01', y: '0' },
+                { x: '2018-01-01', y: '5.9' },
+                { x: '2019-01-01', y: '3.5' },
+                { x: '2020-01-01', y: '3.1' },
+                { x: '2021-01-01', y: '5.8' },
+
+              ],
+              backgroundColor: [
+                'rgba(108, 36, 104, 0.2)',
+
+              ],
+              borderColor: [
+                'rgba(108, 26, 108, 1)',
+
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+      <script>
+        const cax = document.getElementById('myC');
+        const ebr = document.getElementById('ebr');
+        new Chart(cax, {
+          type: 'polarArea',
+          data: {
+            labels: ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17'],
+            datasets: [{
+              label: '# No of total dropouts',
+              data: [7.63, 4.16, 9.97, 11.167, 2.43, 4.23],
+              //   backgroundColor: [
+              //     'rgba(225,99,132,1)',
+              //     'rgba(54,162,235,1)',
+              //     'rgba(255,206,86,1)',
+              //     'rgba(75,192,192,1)',
+              //     'rgba(153,102,255,1)',
+              //     'rgba(255,159,64,1)'
+              //   ]
+              //   borderColor: [
+              //   'rgba(225,99,132,1)',
+              //     'rgba(54,162,235,1)',
+              //     'rgba(255,206,86,1)',
+              //     'rgba(75,192,192,1)',
+              //     'rgba(153,102,255,1)',
+              //     'rgba(255,159,64,1)'
+              //   ]
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        new Chart(ebr, {
+          type: 'line',
+          data: {
+            // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: 'Boys',
+              data: [
+                { x: '2012-01-01', y: '13.8' },
+                { x: '2013-01-01', y: '22.85' },
+                { x: '2014-01-01', y: '13.7' },
+                { x: '2015-01-01', y: '8.6' },
+                { x: '2016-01-01', y: '8.1' },
+                { x: '2017-01-01', y: '4' },
+                { x: '2018-01-01', y: '21.2' },
+                { x: '2019-01-01', y: '20.7' },
+                { x: '2020-01-01', y: '13.7' },
+                { x: '2021-01-01', y: '19.4' },
+
+
+              ],
+              backgroundColor: [
+                'rgba(255, 26, 104, 0.2)',
+
+              ],
+              borderColor: [
+                'rgba(255, 26, 104, 1)',
+
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'Girls',
+              data: [
+                { x: '2012-01-01', y: '12.95' },
+                { x: '2013-01-01', y: '19.81' },
+                { x: '2014-01-01', y: '9' },
+                { x: '2015-01-01', y: '11.4' },
+                { x: '2016-01-01', y: '15.4' },
+                { x: '2017-01-01', y: '10.2' },
+                { x: '2018-01-01', y: '25.8' },
+                { x: '2019-01-01', y: '26' },
+                { x: '2020-01-01', y: '9' },
+                { x: '2021-01-01', y: '15.9' },
+              ],
+              backgroundColor: [
+                'rgba(108, 36, 104, 0.2)',
+
+              ],
+              borderColor: [
+                'rgba(108, 26, 108, 1)',
+
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+  </section>
+
+
+</body>
+</body>
+
+</html>

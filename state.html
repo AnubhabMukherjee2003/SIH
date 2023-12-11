@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="state.css">
+</head>
+<!-- https://youtu.be/HFAjrai-d58?si=Zxofz5KM602_Bn8n -->
+
+
+
+<!-- pls add css for positioning  -->
+
+<body>
+    <header>
+        <div class="header">
+            <img src="Screenshot 2023-09-23 104929.png" alt="my img">
+            <h1>graph my edu</h1>
+        </div>
+        <nav class="navbar">
+            <a href="#" style="text-decoration: none ; color: white; padding: 60px;">Home</a>
+            <!-- <a href="#" style="text-decoration: none ; color: white;">about us</a> -->
+            <div class="dropdown">
+                <span>divisons</span>
+                <div class="dropdown-content">
+                    <p><a href="state.html" style="text-decoration: none ; color: black; ">state wise</a>
+                    <p>gender wise</p>
+                    <p>caste wise</p>
+                    <p>standard wise</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="section">
+        <!-- <h1>district</h1> -->
+        <div class="nm">
+            <h1 style="text-align: center;">Gujarat:    district wise</h1>
+            <div class="chartBox">
+                <h3 style="padding: 10px 35px;">at secondary, 17-18</h3>
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="chartBox">
+                <h3 style="padding: 10px 35px;">at secondary, 17-18</h3>
+                <canvas id="ear"></canvas>
+            </div>
+        </div>
+        <div>
+        <div class="aside" >
+            <ul>
+                <li style="color: blue; font-size: 25px;">Gujarat</li>
+                <!-- gujrat will be highlighted -->
+                <li>Andaman and Nicobar Island</li>
+                <li>Andhra Pradesh</li>
+                <li>Arunachal Pradesh</li>
+                <li>Assam</li>
+                <li>Bihar</li>
+                <li>Chandigarh</li>
+                <li>Chhattisgarh</li>
+                <li>Dadra and Nagar Haveli &amp; Daman &amp; Diu</li>
+                <li>Delhi</li>
+                <li>Goa </li>
+                <li>Haryana</li>
+                <li>Himachal Pradesh</li>
+                <li>Jammu and Kashmir</li>
+                <li>Jharkhand</li>
+                <li>Karnataka</li>
+                <li>Kerala</li>
+                <li>Ladakh </li>
+                <li>Lakshadweep </li>
+                <li>Madhya Pradesh</li>
+                <li>Maharashtra </li>
+                <li>Manipur </li>
+                <li>Meghalaya</li>
+                <li>Mizoram </li>
+                <li>Nagaland</li>
+                <li>Odisha </li>
+                <li>Puducherry </li>
+                <li>Punjab </li>
+                <li>Rajasthan</li>
+                <li>Sikkim</li>
+                <li>Tamil Nadu</li>
+                <li>Telangana</li>
+                <li>Tripura</li>
+                <li>Uttar Pradesh</li>
+                <li>Uttarakhand </li>
+                <li>West Bengal</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- https://youtu.be/HFAjrai-d58?si=Zxofz5KM602_Bn8n -->
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+        integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+        // const ear = document.getElementById('ear');
+        const chartData = 'http://127.0.0.1:5501/12.csv';
+        // parse the file from CSV to JSON
+        d3.csv(chartData).then(function (datapoints) {
+            console.log(datapoints);
+            const district = [];
+            const Boys = [];
+            const Girls = [];
+            const total = [];
+            for (i = 0; i < datapoints.length; i++) {
+                district.push(datapoints[i].district);
+                Boys.push(datapoints[i].Boys);
+                Girls.push(datapoints[i].Girls);
+                total.push(datapoints[i].total);
+                // profit.push(datapoints[i].profit);
+                // revenue.push(datapoints[i].revenue) 
+            }
+            // console.log(district,Boys,Girls,total);
+            console.log(Boys)
+
+            const data = {
+                labels: district,
+                datasets: [{
+                    label: 'total',
+                    data: total,
+                    backgroundColor: [
+                        'rgba(255, 26, 104, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(0, 0, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 26, 104, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+            // console.log(Boys)
+
+            // config 
+            const config = {
+                type: 'bar',
+                data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            // render init block
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+            // console.log(Boys)
+
+            // Instantly assign Chart.js version
+            const chartVersion = document.getElementById('chartVersion');
+            chartVersion.innerText = Chart.version;
+
+        });
+    </script>
+    <script>
+        // const ear = document.getElementById('ear');
+        const chartData1 = 'http://127.0.0.1:5501/12.csv';
+        // parse the file from CSV to JSON
+        d3.csv(chartData1).then(function (datapoints) {
+            console.log(datapoints);
+            const district = [];
+            const Boys = [];
+            const Girls = [];
+            const total = [];
+            for (i = 0; i < datapoints.length; i++) {
+                district.push(datapoints[i].district);
+                Boys.push(datapoints[i].Boys);
+                Girls.push(datapoints[i].Girls);
+                total.push(datapoints[i].total);
+                // profit.push(datapoints[i].profit);
+                // revenue.push(datapoints[i].revenue) 
+            }
+            // console.log(district,Boys,Girls,total);
+            console.log(Boys)
+
+            const data = {
+                labels: district,
+                datasets: [{
+                    label: 'boys',
+                    data: Boys,
+                    backgroundColor: [
+                        'rgba(255, 26, 104, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(0, 0, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 26, 104, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'girls',
+                    data: Girls,
+                    backgroundColor: [
+                        'rgba(255, 26, 104, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(0, 0, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 26, 104, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                ]
+            };
+            // console.log(Boys)
+
+            // config 
+            const config = {
+                type: 'line',
+                data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            // render init block
+            const myChart = new Chart(
+                document.getElementById('ear'),
+                config
+            );
+            // console.log(Boys)
+
+            // Instantly assign Chart.js version
+            const chartVersion = document.getElementById('chartVersion');
+            chartVersion.innerText = Chart.version;
+
+        });
+    </script>
+
+
+</body>
+
+</html>
